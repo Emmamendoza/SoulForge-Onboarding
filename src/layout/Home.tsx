@@ -1,4 +1,4 @@
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import page1 from './../assets/page1.jpg';
 import page2 from './../assets/page2.jpg';
 import page3 from './../assets/page3.jpg';
@@ -6,6 +6,7 @@ import { makeStyles } from '@mui/styles';
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useRef } from 'react';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
@@ -77,6 +78,14 @@ const useStyles = makeStyles(() => ({
     position: 'absolute',
     bottom: '120px',
     animation: '$bounce 1.5s infinite',
+    cursor: 'pointer',
+    pointerEvents: 'auto'
+  },
+  animatedText: {
+    display: 'inline-block', // Needed for per-letter animation
+    opacity: 0, // Start hidden
+    transform: 'translateX(-50px)', // Start offset to the left
+    animation: '$fadeIn 2s ease-out forwards',
   },
   '@keyframes bounce': {
     '0%': {
@@ -89,27 +98,65 @@ const useStyles = makeStyles(() => ({
       transform: 'translateY(0)', // Return to original position
     },
   },
+  '@keyframes fadeIn': {
+    '0%': {
+      opacity: 0
+    },
+    '100%': {
+      opacity: 1
+    },
+  }
 }));
 
 function Home() {
   const classes = useStyles();
 
+  const title: string = "Soul Forge";
+  const description: string = "Dive into the chaos, rise as the chosen";
+  const parallaxRef = useRef<IParallax>(null);
+
+  const renderAnimatedText = (text: string, baseDelay: number = 0) =>
+    text.split("").map((char, index) => (
+      <span
+        key={index}
+        className={classes.animatedText}
+        style={{ animationDelay: `${baseDelay + index * 0.1}s` }}
+      >
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ));
+
+  const handleArrowClick = () => {
+    console.log('Arrow clicked!: ', parallaxRef)
+    if (parallaxRef.current) {
+      parallaxRef.current.scrollTo(1)
+    }
+  };
+
   return (
     <div className={classes.parallaxContainer}>
       <Parallax style={{ overflow: 'visible'}} pages={3}>
-        <ParallaxLayer offset={0} className={classes.parallaxLayer}>
+        <ParallaxLayer offset={0} speed={-0.20} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer1}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
           <Grid container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Grid size={12} className={classes.textGrid}>
-              <Typography className={classes.text} variant="h1">Soul Forge</Typography>
+              <Typography className={classes.text} variant="h1">
+                {renderAnimatedText(title)}
+              </Typography>
             </Grid>
             <Grid size={12} className={classes.textGrid}>
-              <Typography className={classes.text} variant="h4">Dive into the chaos, rise as the chosen</Typography>
+              <Typography className={classes.text} variant="h4">
+                {renderAnimatedText(description, title.length * 0.1)}
+              </Typography>
             </Grid>
             <Grid size={12} className={classes.textGrid}>
-              <KeyboardArrowDownIcon className={classes.icon} style={{fontSize: '80px'}} />
+              <KeyboardArrowDownIcon 
+                className={classes.icon} 
+                style={{ fontSize: '80px' }}
+                onClick={handleArrowClick} // onClick event added he
+              />
             </Grid>
           </Grid>
         </ParallaxLayer>

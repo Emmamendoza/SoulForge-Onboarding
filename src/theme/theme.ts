@@ -18,7 +18,7 @@ export const theme = createTheme({
     body1: {
       fontFamily: "Cinzel, serif", // Cinzel font for body text
       fontWeight: 700,            // Regular weight for body text
-      fontSize: '1rem',           // Optional: specific size for body text
+      fontSize: '1.5rem',           // Optional: specific size for body text
     },
     body2: {
       fontFamily: "Cinzel, serif", // Cinzel font for body text
@@ -59,6 +59,14 @@ export const theme = createTheme({
     },
   },
   components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          textShadow: '0 0 5px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.6)', // Glow effect
+          transition: 'text-shadow 0.3s ease'
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
