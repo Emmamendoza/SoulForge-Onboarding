@@ -36,6 +36,9 @@ const useStyles = makeStyles(() => ({
         overflow: 'hidden',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        border: '2px solid #2f3881',
+        textShadow: '0 0 5px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.6)', // Glow effect
+        transition: 'text-shadow 0.3s ease',
         '&:hover $content': {
             background: 'rgba(0, 0, 0, 0.5)', // Darken the card background on hover
         },

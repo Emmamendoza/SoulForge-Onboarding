@@ -7,6 +7,7 @@ import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
+import { SecondContainer } from './SecondContainer';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
@@ -63,14 +64,23 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: '24px'
+    marginBottom: '24px',
+    textAlign: 'center', // Center-align text for smaller screens
+    padding: '0 16px', // Add padding for better spacing on small screens
   },
   text: {
     zIndex: 1,
     color: 'white',
     textAlign: 'center',
     userSelect: 'none',
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    fontSize: '2rem',
+    '@media (min-width:600px)': {
+      fontSize: '4rem',
+    },
+    '@media (min-width:960px)': {
+      fontSize: '6rem',
+    },
   },
   icon: {
     zIndex: 1,
@@ -79,12 +89,18 @@ const useStyles = makeStyles(() => ({
     bottom: '120px',
     animation: '$bounce 1.5s infinite',
     cursor: 'pointer',
-    pointerEvents: 'auto'
+    pointerEvents: 'auto',
+    fontSize: '3rem',
+    '@media (min-width:600px)': {
+      fontSize: '4rem',
+    },
+    '@media (min-width:960px)': {
+      fontSize: '6rem',
+    },
   },
   animatedText: {
     display: 'inline-block', // Needed for per-letter animation
     opacity: 0, // Start hidden
-    transform: 'translateX(-50px)', // Start offset to the left
     animation: '$fadeIn 2s ease-out forwards',
   },
   '@keyframes bounce': {
@@ -164,7 +180,16 @@ function Home() {
           <div className={`${classes.background} ${classes.layer2}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
-          <Typography className={classes.text} variant="h1">Page 2</Typography>
+          <Grid container>
+            <Grid size={12} className={classes.textGrid}>
+              <Typography className={classes.text} variant="h1">
+                Embark on a journey
+              </Typography>
+            </Grid>
+            <Grid size={12}>
+              <SecondContainer />
+            </Grid>
+          </Grid>
         </ParallaxLayer>
         <ParallaxLayer offset={2} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer3}`} />
