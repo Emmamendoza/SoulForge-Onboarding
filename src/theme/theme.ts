@@ -75,11 +75,17 @@ export const theme = createTheme({
           fontWeight: 700, // Set the font weight for buttons
         },
         contained: {
-          backgroundColor: '#2f3541', // Contained button primary color
+          backgroundColor: '#2f3881', // Contained button primary color
           color: '#ffffff', // Text color for contained button
           '&:hover': {
-            backgroundColor: '#2f3881', // Hover color for contained button
+            backgroundColor: '#6b6bc7', // Hover color for contained button
+            textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8)', // Glowing text effect
+            filter: 'brightness(1.2)', // Optional: Brighten the button for emphasis
           },
+          padding: '8px 16px', // Adjust padding
+          textTransform: 'none', // Keeps text casing normal
+          border: '2px solid transparent', // Keeps the button border clean without external glow
+          transition: 'all 0.3s ease', // Smooth transition for hover effect
         },
         outlined: {
           borderColor: '#1976d2', // Border color for outlined button

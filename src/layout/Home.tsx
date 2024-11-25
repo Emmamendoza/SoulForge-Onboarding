@@ -181,11 +181,6 @@ function Home() {
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
           <Grid container>
-            <Grid size={12} className={classes.textGrid}>
-              <Typography className={classes.text} variant="h1">
-                Embark on a journey
-              </Typography>
-            </Grid>
             <Grid size={12}>
               <SecondContainer />
             </Grid>

@@ -53,7 +53,7 @@ export const NavbarComponent = ({ pages }: NavbarComponentProps) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, marginRight: 4 }}>
-            <ButtonComponent label='Try it out' size='medium' onClick={() => console.log('clicked!')} />
+            <ButtonComponent label='Try It Now' size='medium' onClick={() => console.log('clicked!')} />
           </Box>
         </Toolbar>
       </Container>
