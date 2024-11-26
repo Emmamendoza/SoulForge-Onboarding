@@ -6,7 +6,6 @@ import card1 from './../assets/card1.jpeg';
 import card2 from './../assets/card2.jpeg';
 import card3 from './../assets/card3.jpeg';
 import card4 from './../assets/card4.jpeg';
-import backgroundContainer from './../assets/backgroundContainer2.jpg';
 
 type Card = {
     id: string;

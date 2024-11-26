@@ -2,28 +2,28 @@ import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   typography: {
-    fontFamily: "Cinzel, serif", // Apply Cinzel globally
+    fontFamily: "Cinzel, serif",
     h1: {
-      fontFamily: "Cinzel, serif", // Cinzel font for h1
-      fontWeight: 700,            // Optional: bold the h1 heading
+      fontFamily: "Cinzel, serif",
+      fontWeight: 700,
     },
     h2: {
-      fontFamily: "Cinzel, serif", // Cinzel font for h2
-      fontWeight: 700,            // Bold for h2
+      fontFamily: "Cinzel, serif",
+      fontWeight: 700,
     },
     h3: {
-      fontFamily: "Cinzel, serif", // Cinzel font for h3
-      fontWeight: 700,            // Bold for h3
+      fontFamily: "Cinzel, serif",
+      fontWeight: 700,
     },
     body1: {
-      fontFamily: "Cinzel, serif", // Cinzel font for body text
-      fontWeight: 700,            // Regular weight for body text
-      fontSize: '1.5rem',           // Optional: specific size for body text
+      fontFamily: "Cinzel, serif",
+      fontWeight: 700,
+      fontSize: '1.5rem',
     },
     body2: {
-      fontFamily: "Cinzel, serif", // Cinzel font for body text
+      fontFamily: "Cinzel, serif",
       fontWeight: 400,
-      fontSize: '0.875rem',        // Optional: slightly smaller size for body2
+      fontSize: '0.875rem',
     },
     caption: {
       fontFamily: "Cinzel, serif",
@@ -31,37 +31,38 @@ export const theme = createTheme({
       fontSize: '0.75rem',
     },
     button: {
-      fontFamily: "Cinzel, serif", // Cinzel font for buttons
-      fontWeight: 700,             // Bold for buttons
+      fontFamily: "Cinzel, serif",
+      fontWeight: 700,
     },
   },
   palette: {
     primary: {
-      main: '#2f3541', // Set primary color (you can customize this to your desired color)
+      main: '#2f3541',
     },
     secondary: {
-      main: '#dc004e', // Set secondary color
+      main: '#dc004e',
     },
     error: {
-      main: '#d32f2f', // Customize error color
+      main: '#d32f2f',
     },
     warning: {
-      main: '#f57c00', // Customize warning color
+      main: '#f57c00',
     },
     info: {
-      main: '#0288d1', // Customize info color
+      main: '#0288d1',
     },
     success: {
-      main: '#388e3c', // Customize success color
+      main: '#388e3c',
     },
     background: {
-      default: '#f4f6f8', // Set default background color
+      default: '#f4f6f8',
     },
   },
   components: {
     MuiTypography: {
       styleOverrides: {
         root: {
+          color: '#ffffff',
           textShadow: '0 0 5px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.6)', // Glow effect
           transition: 'text-shadow 0.3s ease'
         }
@@ -70,34 +71,34 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '8px', // Set custom border radius for buttons
-          textTransform: 'none', // Prevent uppercase text in buttons
-          fontWeight: 700, // Set the font weight for buttons
+          borderRadius: '8px',
+          textTransform: 'none',
+          fontWeight: 700,
         },
         contained: {
-          backgroundColor: '#2f3881', // Contained button primary color
-          color: '#ffffff', // Text color for contained button
+          backgroundColor: '#2f3881',
+          color: '#ffffff',
           '&:hover': {
-            backgroundColor: '#364196', // Hover color for contained button
+            backgroundColor: '#364196',
             textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8)', // Glowing text effect
             filter: 'brightness(1.2)', // Optional: Brighten the button for emphasis
           },
-          padding: '8px 16px', // Adjust padding
-          textTransform: 'none', // Keeps text casing normal
-          border: '2px solid transparent', // Keeps the button border clean without external glow
-          transition: 'all 0.3s ease', // Smooth transition for hover effect
+          padding: '8px 16px',
+          textTransform: 'none',
+          border: '2px solid transparent',
+          transition: 'all 0.3s ease', 
         },
         outlined: {
-          borderColor: '#1976d2', // Border color for outlined button
-          color: '#1976d2', // Text color for outlined button
+          borderColor: '#1976d2',
+          color: '#1976d2',
           '&:hover': {
-            backgroundColor: 'rgba(25, 118, 210, 0.1)', // Hover color for outlined button
+            backgroundColor: 'rgba(25, 118, 210, 0.1)',
           },
         },
         text: {
-          color: '##ffffff', // Text button color
+          color: '##ffffff',
           '&:hover': {
-            backgroundColor: 'rgba(25, 118, 210, 0.1)', // Hover color for text button
+            backgroundColor: 'rgba(25, 118, 210, 0.1)',
           },
         },
       },

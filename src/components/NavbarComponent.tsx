@@ -43,6 +43,7 @@ export const NavbarComponent = ({ pages }: NavbarComponentProps) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <MenuItem
+                disableRipple
                 key={page.id}
                 className={classes.navbarItem}
                 onClick={() => page.onClick(page.id)}
@@ -53,7 +54,7 @@ export const NavbarComponent = ({ pages }: NavbarComponentProps) => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0, marginRight: 4 }}>
-            <ButtonComponent label='Try It Now' size='medium' onClick={() => console.log('clicked!')} />
+            <ButtonComponent label='Try It Now' size='medium' onClick={() => console.log('Try it!')} />
           </Box>
         </Toolbar>
       </Container>

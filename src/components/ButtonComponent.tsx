@@ -10,13 +10,16 @@ type ButtonComponentProps = ButtonProps & {
 
 export const ButtonComponent = ({ label, size = 'medium', color, onClick, ...props }: ButtonComponentProps) => {
 
-
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onClick();
+        event.currentTarget.blur();
+    };
 return (
     <Button 
         disableRipple 
         size={size}
         color={color}
-        onClick={onClick}
+        onClick={handleClick}
         variant="contained"
         {...props}>
         <Typography variant='body1'>{label}</Typography>

@@ -8,8 +8,8 @@ import Grid from '@mui/material/Grid2';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { SecondContainer } from './SecondContainer';
-import { ThirdContainer } from './ThirdContainer';
 import { ButtonComponent } from '../components/ButtonComponent';
+import { Footer } from './Footer';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
@@ -68,6 +68,12 @@ const useStyles = makeStyles(() => ({
     height: '20vh',
     background: 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))',
   },
+  shadowOverlayBottom2: {
+    top: 'auto',
+    bottom: 0,
+    height: '30vh',
+    background: 'linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))',
+  },
   textGrid: {
     display: 'flex',
     justifyContent: 'center',
@@ -77,7 +83,7 @@ const useStyles = makeStyles(() => ({
     padding: '0 16px', // Add padding for better spacing on small screens
   },
   text: {
-    zIndex: 1,
+    zIndex: 3,
     color: 'white',
     textAlign: 'center',
     userSelect: 'none',
@@ -166,11 +172,12 @@ const useStyles = makeStyles(() => ({
 
 function Home() {
   const classes = useStyles();
+    const parallaxRef = useRef<IParallax>(null);
 
   const title: string = "Soul Forge";
   const secondTitle: string = "Explore the world of the lost continent"
   const description: string = "Dive into the chaos, rise as the chosen";
-  const parallaxRef = useRef<IParallax>(null);
+
 
   const renderAnimatedText = (text: string, baseDelay: number = 0) =>
     text.split("").map((char, index) => (
@@ -191,9 +198,8 @@ function Home() {
   };
 
   return (
-    <div className={classes.parallaxContainer}>
-      <Parallax style={{ overflow: 'visible'}} pages={3}>
-        <ParallaxLayer offset={0} speed={-0.20} className={classes.parallaxLayer}>
+      <Parallax style={{ overflow: 'visible'}} ref={parallaxRef} className={classes.parallaxContainer} pages={3}>
+        <ParallaxLayer offset={0} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer1}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
@@ -232,12 +238,12 @@ function Home() {
             </Grid>
             <Grid size={12} className={classes.textGrid}>
               <Typography style={{ marginTop: '48px', marginBottom: '28px'}} className={classes.text} variant="h2">
-                {renderAnimatedText('Are You Ready?')}
+                {renderAnimatedText('Are You Ready?', secondTitle.length * 0.1)}
               </Typography>
             </Grid>
             <Grid size={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div className={classes.buttonGlow}>
-                <ButtonComponent style={{ height: '80%', width: 'auto' }} label='Test the demo' size='large' onClick={() => console.log('clicked!')} />
+                <ButtonComponent style={{ width: 'auto' }} label='Test the demo' size='large' onClick={() => console.log('clicked!')} />
               </div>
             </Grid>
           </Grid>
@@ -245,11 +251,16 @@ function Home() {
         <ParallaxLayer offset={2} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer3}`} />
           <div className={classes.shadowOverlay} />
-          <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
-          <Typography className={classes.text} variant="h1">Page 3</Typography>
+          <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom2}`} />
+          <Grid size={12}>
+            <Typography variant='h1'>Class Selection</Typography>
+            <Typography style={{ textAlign: 'center' }} variant='h4'>(In Progress)</Typography>
+          </Grid>
+        </ParallaxLayer>
+        <ParallaxLayer offset={2} style={{ zIndex: 10 }}>
+          <Footer />
         </ParallaxLayer>
       </Parallax>
-    </div>
   );
 }
 

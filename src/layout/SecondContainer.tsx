@@ -2,7 +2,7 @@ import { CardMedia, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { makeStyles } from '@mui/styles';
 import backgroundContainer from './../assets/backgroundContainer.jpg';
-import videoPage from './../assets/videoPage2.mp4';
+import videoPage from './../assets/videoPage.mp4';
 
 export const SecondContainer = () => {
     const classes = useStyles();
@@ -13,20 +13,19 @@ export const SecondContainer = () => {
           {/* Video Section */}
           <Grid size={6}  className={classes.videoGrid}>
             <CardMedia
-              style={{ borderRadius: '8px', width: '75%'}}
+              style={{ borderRadius: '4px', width: '75%'}}
               component="video"
               className={classes.media}
               src={videoPage}
               autoPlay
               loop
-              muted
               controls
             />
           </Grid>
           {/* Text Section */}
           <Grid size={6} className={classes.textGrid}>
             <Typography className={classes.title} variant="h2" gutterBottom>
-              Collect The Souls
+              Collect Souls
             </Typography>
             <Typography style={{ marginBottom: '28px' }} className={classes.description} variant="h5" gutterBottom>
               Embark on an epic journey in <strong>Soul Forge</strong>, a dark fantasy RPG where the fate of entire worlds lies in your hands.
@@ -48,9 +47,14 @@ export const SecondContainer = () => {
     container: {
       paddingTop: '16px',
       paddingBottom: '16px',
-      backgroundImage: `url(${backgroundContainer})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(${backgroundContainer})`,
       backgroundSize: 'cover',
-      backgroundPosition: 'center'
+      backgroundPosition: 'center',
+      boxShadow: '0px 40px 20px rgba(0, 0, 0, 0.5)',
+      backgroundBlendMode: 'overlay', // Ensures blending of the gradient with the image
+      // borderWidth: '8px', // Adjust based on the image
+      // borderStyle: 'solid', // Required when using borderImage
+      // borderImage: `url(${borderImage}) 30 round`, // Image and slicing values
     },
     text: {
       zIndex: 1,
