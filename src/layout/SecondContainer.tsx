@@ -1,21 +1,19 @@
-import { Box, CardMedia, Container, Typography } from '@mui/material';
+import { CardMedia, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { makeStyles } from '@mui/styles';
-import backgroundContainer from './../assets/backgroundContainer2.jpg';
+import backgroundContainer from './../assets/backgroundContainer.jpg';
 import videoPage from './../assets/videoPage2.mp4';
-import { ButtonComponent } from '../components/ButtonComponent';
 
 export const SecondContainer = () => {
     const classes = useStyles();
   
     return (
       <Container maxWidth={false} className={classes.container}>
-
-        <Grid container spacing={4} alignItems="center">
+        <Grid container alignItems="center">
           {/* Video Section */}
           <Grid size={6}  className={classes.videoGrid}>
             <CardMedia
-              style={{borderRadius: '20px'}}
+              style={{ borderRadius: '8px', width: '75%'}}
               component="video"
               className={classes.media}
               src={videoPage}
@@ -25,7 +23,6 @@ export const SecondContainer = () => {
               controls
             />
           </Grid>
-  
           {/* Text Section */}
           <Grid size={6} className={classes.textGrid}>
             <Typography className={classes.title} variant="h2" gutterBottom>
@@ -41,9 +38,6 @@ export const SecondContainer = () => {
               or will the souls you collect consume you? In *Soul Forge*, every choice matters, and your journey is as much about 
               self-discovery as it is about saving the world. <strong>The souls are calling, will you answer?</strong>
             </Typography>
-            <Box sx={{ flexGrow: 0, marginTop: 8, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <ButtonComponent style={{ width: '20%' }} label='Try It Now' size='large' onClick={() => console.log('clicked!')} />
-            </Box>
           </Grid>
         </Grid>
       </Container>
@@ -52,8 +46,8 @@ export const SecondContainer = () => {
   
   const useStyles = makeStyles(() => ({
     container: {
-      paddingTop: '24px',
-      paddingBottom: '24px',
+      paddingTop: '16px',
+      paddingBottom: '16px',
       backgroundImage: `url(${backgroundContainer})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
@@ -83,8 +77,7 @@ export const SecondContainer = () => {
     },
     media: {
       width: '100%',
-      height: 'auto',
-      borderRadius: '8px',
+      height: 'auto'
     },
     title: {
       color: '#ffffff',
@@ -97,6 +90,14 @@ export const SecondContainer = () => {
       lineHeight: '1.5',
       userSelect: 'none',
       pointerEvents: 'none',
-    }
+    },
+    content: {
+      marginBottom: '20px'
+  },
+    cardGrid: {
+      display: 'flex',
+      justifyContent: 'center', // Center cards in their grid cells
+      alignItems: 'center',
+    },
   }));
   

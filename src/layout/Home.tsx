@@ -8,6 +8,8 @@ import Grid from '@mui/material/Grid2';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { SecondContainer } from './SecondContainer';
+import { ThirdContainer } from './ThirdContainer';
+import { ButtonComponent } from '../components/ButtonComponent';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
@@ -22,6 +24,12 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
+    height: '100vh',
+  },
+  parallaxLayer2: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'baseline',
     height: '100vh',
   },
   background: {
@@ -103,6 +111,24 @@ const useStyles = makeStyles(() => ({
     opacity: 0, // Start hidden
     animation: '$fadeIn 2s ease-out forwards',
   },
+  buttonGlow: {
+    position: 'relative',
+    display: 'inline-block',
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'white',
+      filter: 'blur(10px)',
+      zIndex: -1,
+      borderRadius: '8px', // Adjust to match the button's shape
+      opacity: 0.5, // Glow intensity
+      animation: '$pulseGlow 2s infinite ease-in-out',
+    },
+  },
   '@keyframes bounce': {
     '0%': {
       transform: 'translateY(0)', // Starting position
@@ -121,13 +147,28 @@ const useStyles = makeStyles(() => ({
     '100%': {
       opacity: 1
     },
-  }
+  },
+  '@keyframes pulseGlow': {
+  '0%': {
+    opacity: 0.5,
+    filter: 'blur(10px)',
+  },
+  '50%': {
+    opacity: 1,
+    filter: 'blur(15px)',
+  },
+  '100%': {
+    opacity: 0.5,
+    filter: 'blur(10px)',
+  },
+},
 }));
 
 function Home() {
   const classes = useStyles();
 
   const title: string = "Soul Forge";
+  const secondTitle: string = "Explore the world of the lost continent"
   const description: string = "Dive into the chaos, rise as the chosen";
   const parallaxRef = useRef<IParallax>(null);
 
@@ -176,13 +217,28 @@ function Home() {
             </Grid>
           </Grid>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} className={classes.parallaxLayer}>
+        <ParallaxLayer offset={1} className={classes.parallaxLayer2}>
           <div className={`${classes.background} ${classes.layer2}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
           <Grid container>
             <Grid size={12}>
               <SecondContainer />
+            </Grid>
+            <Grid size={12} className={classes.textGrid}>
+              <Typography style={{ marginTop: '48px', marginBottom: '48px'}} className={classes.text} variant="h2">
+                {renderAnimatedText(secondTitle)}
+              </Typography>
+            </Grid>
+            <Grid size={12} className={classes.textGrid}>
+              <Typography style={{ marginTop: '48px', marginBottom: '28px'}} className={classes.text} variant="h2">
+                {renderAnimatedText('Are You Ready?')}
+              </Typography>
+            </Grid>
+            <Grid size={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className={classes.buttonGlow}>
+                <ButtonComponent style={{ height: '80%', width: 'auto' }} label='Test the demo' size='large' onClick={() => console.log('clicked!')} />
+              </div>
             </Grid>
           </Grid>
         </ParallaxLayer>

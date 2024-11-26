@@ -78,7 +78,7 @@ export const theme = createTheme({
           backgroundColor: '#2f3881', // Contained button primary color
           color: '#ffffff', // Text color for contained button
           '&:hover': {
-            backgroundColor: '#6b6bc7', // Hover color for contained button
+            backgroundColor: '#364196', // Hover color for contained button
             textShadow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8)', // Glowing text effect
             filter: 'brightness(1.2)', // Optional: Brighten the button for emphasis
           },

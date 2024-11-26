@@ -2,10 +2,11 @@ import { Container, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid2';
 import { CardComponent } from '../components/CardComponent';
-import card1 from './../assets/card1.jpg';
-import card2 from './../assets/card2.jpg';
-import card3 from './../assets/card3.jpg';
-import card4 from './../assets/card4.jpg';
+import card1 from './../assets/card1.jpeg';
+import card2 from './../assets/card2.jpeg';
+import card3 from './../assets/card3.jpeg';
+import card4 from './../assets/card4.jpeg';
+import backgroundContainer from './../assets/backgroundContainer2.jpg';
 
 type Card = {
     id: string;
@@ -72,16 +73,20 @@ export const ThirdContainer = () => {
 };
 
 const useStyles = makeStyles(() => ({
-  container: {
-    position: 'relative',
-    zIndex: 1,
-  },
-  content: {
-    marginBottom: '20px'
-  },
-  cardGrid: {
-    display: 'flex',
-    justifyContent: 'center', // Center cards in their grid cells
-    alignItems: 'center',
-  },
+    container: {
+        paddingTop: '16px',
+        paddingBottom: '16px',
+        background: 'transparent'
+        // backgroundImage: `url(${backgroundContainer})`,
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center'
+    },
+    content: {
+        marginBottom: '20px'
+    },
+    cardGrid: {
+        display: 'flex',
+        justifyContent: 'center', // Center cards in their grid cells
+        alignItems: 'center',
+    },
 }));
