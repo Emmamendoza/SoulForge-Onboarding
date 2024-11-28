@@ -13,6 +13,7 @@ import { Footer } from './Footer';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
+    backgroundColor: 'black',
     height: '100vh',
     width: '100%',
     position: 'relative',
@@ -213,7 +214,7 @@ function Home() {
   };
 
   return (
-      <Parallax ref={parallaxRef} className={classes.parallaxContainer} pages={3}>
+      <Parallax style={{ overflow: 'visible'}} ref={parallaxRef} className={classes.parallaxContainer} pages={3}>
         <ParallaxLayer offset={0} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer1}`} />
           <div className={classes.shadowOverlay} />
