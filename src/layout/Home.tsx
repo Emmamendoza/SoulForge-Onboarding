@@ -13,7 +13,6 @@ import { Footer } from './Footer';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
-    backgroundColor: 'black',
     height: '100vh',
     width: '100%',
     position: 'relative',
@@ -25,12 +24,23 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     position: 'relative',
     height: '100vh',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'top',
   },
   parallaxLayer2: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'baseline',
     height: '100vh',
+    position: 'fixed',
+    minHeight: '100vh',
+    '@media (max-width:600px)': {
+      backgroundPosition: 'center',
+    },
+    '@media (max-width:960px)': {
+      height: 'auto',
+      alignItems: 'center',
+    },
   },
   background: {
     position: 'absolute',
@@ -42,6 +52,11 @@ const useStyles = makeStyles(() => ({
     backgroundPosition: 'center',
     filter: 'brightness(70%)',
     zIndex: -1,
+    width: '100%',
+    height: '100%',
+    '@media (max-width:600px)': {
+      backgroundSize: 'contain',
+    },
   },
   layer1: {
     backgroundImage: `url(${page1})`,
@@ -198,7 +213,7 @@ function Home() {
   };
 
   return (
-      <Parallax style={{ overflow: 'visible'}} ref={parallaxRef} className={classes.parallaxContainer} pages={3}>
+      <Parallax ref={parallaxRef} className={classes.parallaxContainer} pages={3}>
         <ParallaxLayer offset={0} className={classes.parallaxLayer}>
           <div className={`${classes.background} ${classes.layer1}`} />
           <div className={classes.shadowOverlay} />
@@ -223,7 +238,7 @@ function Home() {
             </Grid>
           </Grid>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} className={classes.parallaxLayer2}>
+        <ParallaxLayer offset={1}  className={classes.parallaxLayer2}>
           <div className={`${classes.background} ${classes.layer2}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />

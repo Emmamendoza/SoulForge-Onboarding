@@ -13,7 +13,7 @@ export const SecondContainer = () => {
           {/* Video Section */}
           <Grid size={6}  className={classes.videoGrid}>
             <CardMedia
-              style={{ borderRadius: '4px', width: '75%'}}
+              style={{ borderRadius: '8px', width: '75%'}}
               component="video"
               className={classes.media}
               src={videoPage}
@@ -47,14 +47,13 @@ export const SecondContainer = () => {
     container: {
       paddingTop: '16px',
       paddingBottom: '16px',
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url(${backgroundContainer})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundContainer})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      boxShadow: '0px 40px 20px rgba(0, 0, 0, 0.5)',
-      backgroundBlendMode: 'overlay', // Ensures blending of the gradient with the image
-      // borderWidth: '8px', // Adjust based on the image
-      // borderStyle: 'solid', // Required when using borderImage
-      // borderImage: `url(${borderImage}) 30 round`, // Image and slicing values
+      boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.5)',
+      '@media (max-width:600px)': {
+        padding: '8px', // Reduce padding for smaller screens
+      },
     },
     text: {
       zIndex: 1,
@@ -73,7 +72,7 @@ export const SecondContainer = () => {
     videoGrid: {
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     textGrid: {
       textAlign: 'left',
@@ -81,6 +80,7 @@ export const SecondContainer = () => {
     },
     media: {
       width: '100%',
+      maxWidth: '100%',
       height: 'auto'
     },
     title: {
