@@ -13,12 +13,13 @@ export const SecondContainer = () => {
           {/* Video Section */}
           <Grid size={6}  className={classes.videoGrid}>
             <CardMedia
-              style={{ borderRadius: '8px', width: '75%'}}
+              style={{ borderRadius: '8px', width: '80%'}}
               component="video"
               className={classes.media}
               src={videoPage}
               autoPlay
               loop
+              muted
               controls
             />
           </Grid>
@@ -94,14 +95,6 @@ export const SecondContainer = () => {
       lineHeight: '1.5',
       userSelect: 'none',
       pointerEvents: 'none',
-    },
-    content: {
-      marginBottom: '20px'
-  },
-    cardGrid: {
-      display: 'flex',
-      justifyContent: 'center', // Center cards in their grid cells
-      alignItems: 'center',
     },
   }));
   

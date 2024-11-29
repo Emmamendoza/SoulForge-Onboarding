@@ -8,12 +8,11 @@ import Grid from '@mui/material/Grid2';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRef } from 'react';
 import { SecondContainer } from './SecondContainer';
-import { ButtonComponent } from '../components/ButtonComponent';
 import { Footer } from './Footer';
+import { ThirdContainer } from './ThirdContainer';
 
 const useStyles = makeStyles(() => ({
   parallaxContainer: {
-    backgroundColor: 'black',
     height: '100vh',
     width: '100%',
     position: 'relative',
@@ -95,8 +94,8 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: '24px',
-    textAlign: 'center', // Center-align text for smaller screens
-    padding: '0 16px', // Add padding for better spacing on small screens
+    textAlign: 'center',
+    padding: '0 16px',
   },
   text: {
     zIndex: 3,
@@ -133,24 +132,6 @@ const useStyles = makeStyles(() => ({
     opacity: 0, // Start hidden
     animation: '$fadeIn 2s ease-out forwards',
   },
-  buttonGlow: {
-    position: 'relative',
-    display: 'inline-block',
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'white',
-      filter: 'blur(10px)',
-      zIndex: -1,
-      borderRadius: '8px', // Adjust to match the button's shape
-      opacity: 0.5, // Glow intensity
-      animation: '$pulseGlow 2s infinite ease-in-out',
-    },
-  },
   '@keyframes bounce': {
     '0%': {
       transform: 'translateY(0)', // Starting position
@@ -169,21 +150,7 @@ const useStyles = makeStyles(() => ({
     '100%': {
       opacity: 1
     },
-  },
-  '@keyframes pulseGlow': {
-  '0%': {
-    opacity: 0.5,
-    filter: 'blur(10px)',
-  },
-  '50%': {
-    opacity: 1,
-    filter: 'blur(15px)',
-  },
-  '100%': {
-    opacity: 0.5,
-    filter: 'blur(10px)',
-  },
-},
+  }
 }));
 
 function Home() {
@@ -191,7 +158,6 @@ function Home() {
     const parallaxRef = useRef<IParallax>(null);
 
   const title: string = "Soul Forge";
-  const secondTitle: string = "Explore the world of the lost continent"
   const description: string = "Dive into the chaos, rise as the chosen";
 
 
@@ -234,33 +200,21 @@ function Home() {
               <KeyboardArrowDownIcon 
                 className={classes.icon} 
                 style={{ fontSize: '80px' }}
-                onClick={handleArrowClick} // onClick event added he
+                onClick={handleArrowClick}
               />
             </Grid>
           </Grid>
         </ParallaxLayer>
-        <ParallaxLayer offset={1}  className={classes.parallaxLayer2}>
+        <ParallaxLayer offset={1} className={classes.parallaxLayer2} style={{ height: '100vh' }}>
           <div className={`${classes.background} ${classes.layer2}`} />
           <div className={classes.shadowOverlay} />
           <div className={`${classes.shadowOverlay} ${classes.shadowOverlayBottom}`} />
-          <Grid container>
+          <Grid container direction="column" alignItems="center" justifyContent="center">
             <Grid size={12}>
               <SecondContainer />
             </Grid>
-            <Grid size={12} className={classes.textGrid}>
-              <Typography style={{ marginTop: '48px', marginBottom: '48px'}} className={classes.text} variant="h2">
-                {renderAnimatedText(secondTitle)}
-              </Typography>
-            </Grid>
-            <Grid size={12} className={classes.textGrid}>
-              <Typography style={{ marginTop: '48px', marginBottom: '28px'}} className={classes.text} variant="h2">
-                {renderAnimatedText('Are You Ready?', secondTitle.length * 0.1)}
-              </Typography>
-            </Grid>
-            <Grid size={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <div className={classes.buttonGlow}>
-                <ButtonComponent style={{ width: 'auto' }} label='Test the demo' size='large' onClick={() => console.log('clicked!')} />
-              </div>
+            <Grid size={12}>
+              <ThirdContainer />
             </Grid>
           </Grid>
         </ParallaxLayer>

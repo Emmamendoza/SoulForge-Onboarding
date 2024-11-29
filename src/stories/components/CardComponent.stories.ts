@@ -18,6 +18,41 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// type Card = {
+//     id: string;
+//     image: string;
+//     title: string
+//     description?: string;
+// };
+
+// const cards: Card[] = [
+//     {
+//         id: "forest",
+//         image: card1,
+//         title: 'Forge Souls',
+//         description: 'Every path you walk shapes the world you leave behind'
+//     },
+//     {
+//         id: "giant",
+//         image: card2,
+//         title: 'Arcane Odyssey',
+//         description: 'Embark on an epic quest through a realm of mystery and magic'
+//     },
+//     {
+//         id: "dragon",
+//         image: card3,
+//         title: 'Veil of the Void',
+//         description: 'Journey beyond the veil to uncover the secrets of creation'
+//     },
+//     {
+//         id: "battle",
+//         image: card4,
+//         title: 'Shattered Kingdoms',
+//         description: 'Unite the fractured realms and restore the ancient balance'
+//     },
+
+// ]
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
     args: {
